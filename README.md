@@ -13,13 +13,13 @@
 
 
 ## Migration
--#1 Run migration command 'php artisan migrate' <br/>
+#1 Run migration command 'php artisan migrate' <br/>
 
 ## UI Installation for Auth
--#1 composer require laravel/ui <br/>
--#2 npm install <br/>
--#3 npm run dev <br/>
--#4 php artisan ui bootstrap --auth <br/>
+#1 composer require laravel/ui <br/>
+#2 npm install <br/>
+#3 npm run dev <br/>
+#4 php artisan ui bootstrap --auth <br/>
 
 
 ## Multiauth Concept
@@ -71,13 +71,13 @@ Edit a function (Fitst Condition will return to admin view if your are logged in
 
 
 ## In web.php you can protect your routes with your custom middleware <br/>
-Route::middleware('admin')->group(function(){
-    Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
-});
+Route::middleware('admin')->group(function(){ <br/>
+    Route::get('/admin', [AdminController::class, 'admin'])->name('admin'); <br/>
+});<br/><br/>
 
-Route::middleware('user')->group(function(){
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-});
+Route::middleware('user')->group(function(){ <br/>
+    Route::get('/home', [HomeController::class, 'index'])->name('home'); <br/>
+}); <br/>
 
 
 
