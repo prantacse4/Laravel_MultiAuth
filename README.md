@@ -8,39 +8,39 @@
 </p>
 
 ## Implementing Multiauth
-#1 Create a project with laravel new multiauth
-#2 In .env file add your database name.
+#1 Create a project with laravel new multiauth <br/>
+#2 In .env file add your database name. <br/>
 
 
 ## Migration
-#1 Run migration command 'php artisan migrate'
+-#1 Run migration command 'php artisan migrate' <br/>
 
 ## UI Installation for Auth
-#1 composer require laravel/ui
-#2 npm install
-#3 npm run dev
-#4 php artisan ui bootstrap --auth
+-#1 composer require laravel/ui <br/>
+-#2 npm install <br/>
+-#3 npm run dev <br/>
+-#4 php artisan ui bootstrap --auth <br/>
 
 
 ## Multiauth Concept
 
-#1 Now create middleware for your different auth
--> php artisan make:middleware IsAdmin
--> php artisan make:middleware IsUser
-#2 In HTTP>Middleware>Karnel.php
-->'user' => \App\Http\Middleware\IsUser::class
-->'admin' => \App\Http\Middleware\IsAdmin::class,
-You will use 'user' or 'admin' as your middleware
-#3 Create a view for admnin and user view is created default by Laravel named as Home or you can create also
-#4 Remove middleware part function from HomeController
-#5 Customize migration for user account add two extra fields or more as per your multi auth. In migration:
--> $table->boolean('is_user')->default(1);
--> $table->boolean('is_admin')->default(0);
+#1 Now create middleware for your different auth <br/>
+-> php artisan make:middleware IsAdmin <br/>
+-> php artisan make:middleware IsUser <br/>
+#2 In HTTP>Middleware>Karnel.php <br/>
+->'user' => \App\Http\Middleware\IsUser::class <br/>
+->'admin' => \App\Http\Middleware\IsAdmin::class <br/>
+You will use 'user' or 'admin' as your middleware <br/>
+#3 Create a view for admnin and user view is created default by Laravel named as Home or you can create also <br/>
+#4 Remove middleware part function from HomeController <br/>
+#5 Customize migration for user account add two extra fields or more as per your multi auth. In migration: <br/>
+-> $table->boolean('is_user')->default(1); <br/>
+-> $table->boolean('is_admin')->default(0); <br/>
 
 
 
-## IsAdmin.php (Your created middleware)
-Edit a function
+## IsAdmin.php (Your created middleware) 
+Edit a function <br/>
    public function handle($request, Closure $next)
     {
         
@@ -53,7 +53,7 @@ Edit a function
     
     
 ## IsUser.php (Your created middleware)
-Edit a function (Fitst Condition will return to admin view if your are logged in as admin)
+Edit a function (Fitst Condition will return to admin view if your are logged in as admin) <br/>
     public function handle($request, Closure $next)
     {
 
@@ -70,7 +70,7 @@ Edit a function (Fitst Condition will return to admin view if your are logged in
 
 
 
-## In web.php you can protect your routes with your custom middleware
+## In web.php you can protect your routes with your custom middleware <br/>
 Route::middleware('admin')->group(function(){
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
 });
