@@ -13,7 +13,10 @@
 
 
 ## Migration
-#1 Run migration command 'php artisan migrate' <br/>
+#2 Customize migration for user account add two extra fields or more as per your multi auth. In migration: <br/>
+ `$table->boolean('is_user')->default(1);` <br/>
+ `$table->boolean('is_admin')->default(0);` <br/>
+#1 Run migration command `php artisan migrate` <br/>
 
 ## UI Installation for Auth
 #1 composer require laravel/ui <br/>
@@ -33,9 +36,7 @@
 You will use 'user' or 'admin' as your middleware <br/>
 #3 Create a view for admnin and user view is created default by Laravel named as Home or you can create also <br/>
 #4 Remove middleware part function from HomeController <br/>
-#5 Customize migration for user account add two extra fields or more as per your multi auth. In migration: <br/>
--> $table->boolean('is_user')->default(1); <br/>
--> $table->boolean('is_admin')->default(0); <br/>
+
 
 
 
