@@ -19,10 +19,10 @@
 #1 Run migration command `php artisan migrate` <br/>
 
 ## UI Installation for Auth
-#1 composer require laravel/ui <br/>
-#2 npm install <br/>
-#3 npm run dev <br/>
-#4 php artisan ui bootstrap --auth <br/>
+#1 `composer require laravel/ui` <br/>
+#2 `npm install` <br/>
+#3 `npm run dev` <br/>
+#4 `php artisan ui bootstrap --auth` <br/>
 
 
 ## Multiauth Concept
@@ -31,8 +31,8 @@
 -> php artisan make:middleware IsAdmin <br/>
 -> php artisan make:middleware IsUser <br/>
 #2 In HTTP>Middleware>Karnel.php <br/>
-->'user' => \App\Http\Middleware\IsUser::class <br/>
-->'admin' => \App\Http\Middleware\IsAdmin::class <br/>
+-> `'user' => \App\Http\Middleware\IsUser::class` <br/>
+-> `'admin' => \App\Http\Middleware\IsAdmin::class` <br/>
 You will use 'user' or 'admin' as your middleware <br/>
 #3 Create a view for admnin and user view is created default by Laravel named as Home or you can create also <br/>
 #4 Remove middleware part function from HomeController <br/>
@@ -72,13 +72,13 @@ Edit a function (Fitst Condition will return to admin view if your are logged in
 
 
 ## In web.php you can protect your routes with your custom middleware <br/>
-Route::middleware('admin')->group(function(){ <br/>
+`Route::middleware('admin')->group(function(){ <br/>
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin'); <br/>
-});<br/><br/>
+});` <br/><br/>
 
-Route::middleware('user')->group(function(){ <br/>
+`Route::middleware('user')->group(function(){ <br/>
     Route::get('/home', [HomeController::class, 'index'])->name('home'); <br/>
-}); <br/>
+});` <br/>
 
 
 
